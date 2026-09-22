@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="5230水果忍者 - 经典水果切切乐网页版，无需下载，在线即可体验切水果、躲避炸弹的快感。提供完整游戏玩法说明、技巧攻略及高分秘籍。">
+    <meta name="keywords" content="5230水果忍者, 水果忍者网页版, 切水果游戏, 在线小游戏, 5230经典游戏">
+    <title>5230水果忍者-经典切切乐网页版在线游玩与攻略指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --accent-color: #ffe66d;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-color: #f7f9fc;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #fff0f0 0%, #e0f7fa 100%);
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,230,109,0.2) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .game-canvas-wrapper {
+            background: #000;
+            border-radius: 12px;
+            box-shadow: var(--shadow-hover);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .game-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 10;
+        }
+
+        .game-overlay.hidden {
+            display: none;
+        }
+
+        .game-btn {
+            background: var(--accent-color);
+            color: var(--text-dark);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.1s;
+        }
+
+        .game-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* 特色介绍 */
+        .features {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* 游戏玩法与技巧 */
+        .guide-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .guide-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .guide-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .guide-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .guide-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .guide-list li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .guide-container { grid-template-columns: 1fr; }
+            .game-canvas-wrapper { aspect-ratio: 4/3; }
+        }
+
+        /* 页脚 */
+        footer {
+            background: #2d3436;
+            color: #b2bec3;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>🍉</span> 5230水果忍者
+                </div>
+                <div class="nav-links">
+                    <a href="#play">立即游玩</a>
+                    <a href="#features">游戏特色</a>
+                    <a href="#guide">技巧攻略</a>
+                    <a href="#faq">常见问题</a>
+                </div>
+                <a href="#play" class="cta-btn">开始切水果</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero 区域 -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>重温经典 5230 水果忍者体验</h1>
+                <p>无需下载，无需安装，打开浏览器即可畅玩经典切切乐。切水果、躲避炸弹，挑战你的手速极限。</p>
+                
+                <div class="game-canvas-wrapper">
+                    <canvas id="gameCanvas" width="800" height="450"></canvas>
+                    <div id="gameOverlay" class="game-overlay">
+                        <h2>准备好了吗？</h2>
+                        <p>点击按钮开始游戏</p>
+                        <button class="game-btn" onclick="startGame()">开始切水果</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特色介绍 -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">游戏特色</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>极速反应</h3>
+                        <p>考验手指的灵活度与反应速度，在水果飞向空中的瞬间精准切割，获得连击奖励。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">💣</div>
+                        <h3>躲避炸弹</h3>
+                        <p>不仅要切水果，更要小心黑色的炸弹。切到炸弹将直接导致游戏结束，增加紧张感。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🍉</div>
+                        <h3>丰富水果</h3>
+                        <p>包含西瓜、菠萝、香蕉、猕猴桃等多种经典水果，切开后汁水四溅，视觉效果极佳。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>多端兼容</h3>
+                        <p>基于 HTML5 Canvas 技术，完美适配电脑鼠标操作与手机触摸操作，随时随地畅玩。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 攻略指南 -->
+        <section id="guide" class="guide-section">
+            <div class="container">
+                <h2 class="section-title">高分技巧与攻略</h2>
+                <div class="guide-container">
+                    <div class="guide-content">
+                        <h3>如何获得更高分数？</h3>
+                        <p>5230水果忍者的核心在于“连击”。连续切开水果会增加 Combo 数，分数呈指数级增长。不要犹豫，看到水果就切，不要留恋。</p>
+                        <h3>炸弹识别技巧</h3>
+                        <p>炸弹通常带有引信，且颜色较深。如果在屏幕边缘看到黑影，务必谨慎判断是否为炸弹，以免误判导致游戏结束。</p>
+                        <h3>控制力度</h3>
+                        <p>在电脑上，鼠标划过的速度越快，切水果的效果越好。在手机上，手指滑动的速度同样重要。</p>
+                        <ul class="guide-list">
+                            <li>保持专注，不要被其他弹窗干扰</li>
+                            <li>优先切开较大的水果（如西瓜）</li>
+                            <li>利用屏幕边缘进行切割，减少误触</li>
+                        </ul>
+                    </div>
+                    <div class="guide-image-placeholder" style="background: #eee; border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; color: #888;">
+                        <span>游戏操作示意图区域</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="features" style="background-color: #fff;">
+            <div class="container">
+                <h2 class="section-title">常见问题</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <h3>游戏卡顿怎么办？</h3>
+                        <p>请确保您的浏览器已更新至最新版本，并关闭其他占用内存的标签页。清理浏览器缓存也有助于提升性能。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>支持手机操作吗？</h3>
+                        <p>是的，本网页版游戏完全支持移动端浏览器，通过触摸屏幕即可进行切割操作。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>是否需要联网？</h3>
+                        <p>游戏核心逻辑在本地运行，但为了加载网页资源，建议在联网状态下访问以保证最佳体验。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 5230水果忍者 - 经典网页游戏复刻版. All Rights Reserved.</p>
+            <p style="margin-top: 10px; opacity: 0.6;">本站为玩家交流与娱乐提供资源，游戏版权归原开发团队所有。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 游戏逻辑
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const overlay = document.getElementById('gameOverlay');
+        const scoreDisplay = document.createElement('div');
+        scoreDisplay.style.position = 'absolute';
+        scoreDisplay.style.top = '10px';
+        scoreDisplay.style.left = '10px';
+        scoreDisplay.style.color = 'white';
+        scoreDisplay.style.fontSize = '20px';
+        scoreDisplay.style.fontWeight = 'bold';
+        scoreDisplay.style.textShadow = '1px 1px 2px black';
+        canvas.parentElement.appendChild(scoreDisplay);
+
+        let isPlaying = false;
+        let score = 0;
+        let fruits = [];
+        let particles = [];
+        let bombs = [];
+        let lastTime = 0;
+        let spawnTimer = 0;
+        let gameSpeed = 1;
+
+        // 水果类型定义
+        const fruitTypes = [
+            { name: 'watermelon', color: '#e74c3c', score: 10, radius: 40, emoji: '🍉' },
+            { name: 'orange', color: '#f39c12', score: 10, radius: 30, emoji: '🍊' },
+            { name: 'banana', color: '#f1c40f', score: 10, radius: 25, emoji: '🍌' },
+            { name: 'apple', color: '#e74c3c', score: 10, radius: 28, emoji: '🍎' },
+            { name: 'pineapple', color: '#f1c40f', score: 10, radius: 35, emoji: '🍍' }
+        ];
+
+        class Fruit {
+            constructor() {
+                const type = fruitTypes[Math.floor(Math.random() * fruitTypes.length)];
+                this.x = Math.random() * (canvas.width - 100) + 50;
+                this.y = canvas.height + 50;
+                this.radius = type.radius;
+                this.color = type.color;
+                this.emoji = type.emoji;
+                this.score = type.score;
+                this.speed = (Math.random() * 2 + 3) * gameSpeed;
+                this.angle = Math.random() * Math.PI * 2;
+                this.spin = (Math.random() - 0.5) * 0.2;
+                this.vx = Math.cos(this.angle) * this.speed;
+                this.vy = Math.sin(this.angle) * this.speed;
+                this.active = true;
+                this.sliced = false;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.angle += this.spin;
+
+                if (this.y < -50 || this.x < -50 || this.x > canvas.width + 50) {
+                    this.active = false;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.font = `${this.radius * 2}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(this.emoji, 0, 5); // 微调y轴居中
+                ctx.restore();
+            }
+        }
+
+        class Bomb {
+            constructor() {
+                this.x = Math.random() * (canvas.width - 100) + 50;
+                this.y = canvas.height + 50;
+                this.radius = 40;
+                this.speed = (Math.random() * 2 + 3) * gameSpeed;
+                this.angle = Math.random() * Math.PI * 2;
+                this.vx = Math.cos(this.angle) * this.speed;
+                this.vy = Math.sin(this.angle) * this.speed;
+                this.active = true;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.angle += 0.05;
+                if (this.y < -50) this.active = false;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.font = `${this.radius * 2}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('💣', 0, 0);
+                ctx.restore();
+            }
+        }
+
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.radius = Math.random() * 3 + 2;
+                this.vx = (Math.random() - 0.5) * 10;
+                this.vy = (Math.random() - 0.5) * 10;
+                this.alpha = 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vy += 0.2; // 重力
+                this.alpha -= 0.02;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function createExplosion(x, y, color) {
+            for (let i = 0; i < 10; i++) {
+                particles.push(new Particle(x, y, color));
+            }
+        }
+
+        function startGame() {
+            isPlaying = true;
+            score = 0;
+            gameSpeed = 1;
+            fruits = [];
+            bombs = [];
+            particles = [];
+            overlay.classList.add('hidden');
+            scoreDisplay.innerText = `分数: ${score}`;
+            requestAnimationFrame(gameLoop);
+        }
+
+        function gameOver() {
+            isPlaying = false;
+            overlay.classList.remove('hidden');
+            overlay.innerHTML = `
+                <h2>游戏结束</h2>
+                <p>最终得分: ${score}</p>
+                <button class="game-btn" onclick="startGame()">再玩一次</button>
+            `;
+        }
+
+        function drawSlice(x, y) {
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + 20, y - 20);
+            ctx.stroke();
+        }
+
+        let isMouseDown = false;
+        let lastX = 0;
+        let lastY = 0;
+
+        canvas.addEventListener('mousedown', (e) => {
+            if (!isPlaying) return;
+            isMouseDown = true;
+            lastX = e.offsetX;
+            lastY = e.offsetY;
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (!isPlaying || !isMouseDown) return;
+            
+            const currentX = e.offsetX;
+            const currentY = e.offsetY;
+
+            // 简单的切割检测
+            fruits.forEach(fruit => {
+                if (!fruit.active || fruit.sliced) return;
+                
+                const dx = currentX - fruit.x;
+                const dy = currentY - fruit.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+
+                if (dist < fruit.radius) {
+                    fruit.sliced = true;
+                    fruit.active = false;
+                    score += fruit.score;
+                    scoreDisplay.innerText = `分数: ${score}`;
+                    createExplosion(fruit.x, fruit.y, fruit.color);
+                    
+                    // 偶尔生成炸弹
+                    if (Math.random() < 0.1) {
+                        bombs.push(new Bomb());
+                    }
+                }
+            });
+
+            drawSlice(currentX, currentY);
+            lastX = currentX;
+            lastY = currentY;
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            isMouseDown = false;
+        });
+        
+        canvas.addEventListener('touchstart', (e) => {
+            if (!isPlaying) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+            isMouseDown = true;
+            lastX = x;
+            lastY = y;
+
+             fruits.forEach(fruit => {
+                if (!fruit.active || fruit.sliced) return;
+                const dx = x - fruit.x;
+                const dy = y - fruit.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < fruit.radius) {
+                    fruit.sliced = true;
+                    fruit.active = false;
+                    score += fruit.score;
+                    scoreDisplay.innerText = `分数: ${score}`;
+                    createExplosion(fruit.x, fruit.y, fruit.color);
+                    if (Math.random() < 0.1) bombs.push(new Bomb());
+                }
+            });
+        }, {passive: false});
+
+        canvas.addEventListener('touchmove', (e) => {
+            if (!isPlaying || !isMouseDown) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+
+            fruits.forEach(fruit => {
+                if (!fruit.active || fruit.sliced) return;
+                const dx = x - fruit.x;
+                const dy = y - fruit.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < fruit.radius) {
+                    fruit.sliced = true;
+                    fruit.active = false;
+                    score += fruit.score;
+                    scoreDisplay.innerText = `分数: ${score}`;
+                    createExplosion(fruit.x, fruit.y, fruit.color);
+                    if (Math.random() < 0.1) bombs.push(new Bomb());
+                }
+            });
+        }, {passive: false});
+
+        canvas.addEventListener('touchend', () => {
+            isMouseDown = false;
+        });
+
+        function gameLoop(timestamp) {
+            if (!isPlaying) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 生成水果
+            spawnTimer++;
+            if (spawnTimer > 60) {
+                fruits.push(new Fruit());
+                spawnTimer = 0;
+                // 随着分数增加，游戏速度变快
+                if (score > 100) gameSpeed = 1.2;
+                if (score > 300) gameSpeed = 1.4;
+            }
+
+            // 更新和绘制水果
+            fruits = fruits.filter(f => f.active);
+            fruits.forEach(f => {
+                f.update();
+                f.draw();
+            });
+
+            // 更新和绘制炸弹
+            bombs = bombs.filter(b => b.active);
+            bombs.forEach(b => {
+                b.update();
+                b.draw();
+            });
+
+            // 更新和绘制粒子
+            particles = particles.filter(p => p.alpha > 0);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            // 检查炸弹
+            bombs.forEach(bomb => {
+                const dx = lastX - bomb.x;
+                const dy = lastY - bomb.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < bomb.radius) {
+                    gameOver();
+                }
+            });
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        // 初始绘制背景
+        ctx.fillStyle = '#222';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#fff';
+        ctx.font = '20px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('点击开始按钮进入游戏', canvas.width/2, canvas.height/2);
+
+    </script>
+</body>
+</html>
