@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="1.95刺影合击官网提供最新版本下载、职业攻略、装备爆率及游戏活动资讯。体验经典复古合击玩法，打造你的传奇霸业。">
+    <meta name="keywords" content="1.95刺影合击,传奇合击,复古传奇,1.95合击,传奇下载">
+    <title>1.95刺影合击-经典复古传奇合击手游与端游下载</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8b0000;
+            --secondary-color: #ffd700;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-dark: #1a1a1a;
+            --bg-card: #252525;
+            --bg-hover: #333;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 100%);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #fff;
+            font-size: 14px;
+            font-weight: normal;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            color: #ddd;
+            font-size: 16px;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .download-btn {
+            background: linear-gradient(90deg, #b22222, #8b0000);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(139, 0, 0, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: url('https://picsum.photos/seed/legend/1920/600') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(139,0,0,0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            color: var(--secondary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            color: #ddd;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 36px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: #000;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #e6c200;
+            border-color: #e6c200;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Server Info Bar */
+        .server-bar {
+            background-color: #2a2a2a;
+            border-bottom: 1px solid #444;
+            padding: 12px 0;
+        }
+
+        .server-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .server-item strong {
+            color: var(--secondary-color);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+        }
+
+        .section-title p {
+            color: #888;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--secondary-color);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Classes Section */
+        .classes-section {
+            margin-bottom: 60px;
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .class-card {
+            position: relative;
+            height: 350px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .class-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+            filter: brightness(0.6);
+        }
+
+        .class-card:hover .class-bg {
+            transform: scale(1.1);
+            filter: brightness(0.8);
+        }
+
+        .class-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: #fff;
+        }
+
+        .class-info h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        .class-info p {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        /* News Section */
+        .news-section {
+            background-color: #222;
+            padding: 40px 0;
+            border-radius: var(--border-radius);
+            margin-bottom: 60px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
+        }
+
+        .news-img {
+            height: 180px;
+            background-color: #333;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .news-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-tag {
+            font-size: 12px;
+            color: var(--secondary-color);
+            background: rgba(255, 215, 0, 0.1);
+            padding: 2px 6px;
+            border-radius: 2px;
+            align-self: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-card:hover .news-title {
+            color: var(--secondary-color);
+        }
+
+        .news-meta {
+            margin-top: auto;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 60px 0 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 12px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .classes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span>1.95刺影合击</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">游戏特色</a></li>
+                    <li><a href="#">职业介绍</a></li>
+                    <li><a href="#">开服列表</a></li>
+                    <li><a href="#">新手攻略</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="download-btn">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                </svg>
+                立即下载
+            </a>
+        </div>
+    </header>
+
+    <div class="server-bar">
+        <div class="server-bar-inner">
+            <div class="server-item">当前开服：<strong>1区-战神降临</strong> (12:00)</div>
+            <div class="server-item">在线人数：<strong>4,521</strong></div>
+            <div class="server-item">今日爆率：<strong>200%</strong></div>
+            <div class="server-item">游戏状态：<strong>火爆进行中</strong></div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>重温经典 <span>1.95刺影合击</span></h1>
+            <p>原汁原味复古情怀，极致合击技能体验。万人同屏，热血攻沙，等你来战！</p>
+            <div class="hero-actions">
+                <a href="#" class="btn btn-primary">开始冒险</a>
+                <a href="#" class="btn btn-outline">观看视频</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Features -->
+        <section class="features">
+            <div class="section-title">
+                <h2>游戏特色</h2>
+                <p>精心打磨的复古玩法，带来不一样的游戏体验</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">⚔️</div>
+                    <h3>三职业经典回归</h3>
+                    <p>战士、法师、道士三大经典职业，平衡的技能设定，重现当年热血传奇的战斗快感。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">💥</div>
+                    <h3>刺影合击技能</h3>
+                    <p>独创刺影合击系统，两大职业组合释放毁天灭地的大招，攻沙必备神技。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3>海量福利回馈</h3>
+                    <p>上线送极品装备，每日签到领元宝，首充送VIP，让新手玩家也能轻松起步。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🏰</div>
+                    <h3>攻沙城战</h3>
+                    <p>千人同屏攻城战，检验团队协作与策略的时刻。攻下沙城，成为全区霸主。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Classes -->
+        <section class="classes-section">
+            <div class="section-title">
+                <h2>职业介绍</h2>
+                <p>选择你的战斗伙伴，开启传奇之路</p>
+            </div>
+            <div class="classes-grid">
+                <div class="class-card">
+                    <div class="class-bg" style="background-image: url('https://picsum.photos/seed/warrior/400/500');"></div>
+                    <div class="class-info">
+                        <h3>战</h3>
+                        <p>近战物理输出 | 铁血硬汉</p>
+                        <p style="margin-top:5px; font-size:12px; opacity:0.8;">高生存、高爆发，近战之王</p>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-bg" style="background-image: url('https://picsum.photos/seed/mage/400/500');"></div>
+                    <div class="class-info">
+                        <h3>法</h3>
+                        <p>远程魔法输出 | 精英法师</p>
+                        <p style="margin-top:5px; font-size:12px; opacity:0.8;">群攻技能，控场核心</p>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-bg" style="background-image: url('https://picsum.photos/seed/taoist/400/500');"></div>
+                    <div class="class-info">
+                        <h3>道</h3>
+                        <p>辅助/远程 | 隐身施毒</p>
+                        <p style="margin-top:5px; font-size:12px; opacity:0.8;">召唤神兽，治疗续航</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News -->
+        <section class="news-section">
+            <div class="section-title">
+                <h2>最新资讯</h2>
+                <p>关注游戏动态，不错过任何精彩活动</p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-img" style="background-image: url('https://picsum.photos/seed/news1/400/300');"></div>
+                    <div class="news-content">
+                        <span class="news-tag">活动公告</span>
+                        <h3 class="news-title">【限时活动】周末双倍经验，攻沙奖励翻倍开启</h3>
+                        <div class="news-meta">2023-10-25 | 编辑：GM团队</div>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-img" style="background-image: url('https://picsum.photos/seed/news2/400/300');"></div>
+                    <div class="news-content">
+                        <span class="news-tag">版本更新</span>
+                        <h3 class="news-title">1.95刺影合击V2.3版本更新说明：新地图上线</h3>
+                        <div class="news-meta">2023-10-22 | 编辑：技术部</div>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-img" style="background-image: url('https://picsum.photos/seed/news3/400/300');"></div>
+                    <div class="news-content">
+                        <span class="news-tag">开服预告</span>
+                        <h3 class="news-title">【重磅】新区“龙腾四海”定档本周五晚20:00</h3>
+                        <div class="news-meta">2023-10-20 | 编辑：运营部</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于游戏</h4>
+                <ul>
+                    <li><a href="#">游戏简介</a></li>
+                    <li><a href="#">游戏下载</a></li>
+                    <li><a href="#">玩家社区</a></li>
+                    <li><a href="#">游戏公告</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>新手指南</h4>
+                <ul>
+                    <li><a href="#">职业选择</a></li>
+                    <li><a href="#">升级攻略</a></li>
+                    <li><a href="#">装备获取</a></li>
+                    <li><a href="#">PK技巧</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系支持</h4>
+                <ul>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">玩家反馈</a></li>
+                    <li><a href="#">商务合作</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>下载专区</h4>
+                <ul>
+                    <li><a href="#">PC端下载</a></li>
+                    <li><a href="#">安卓下载</a></li>
+                    <li><a href="#">iOS下载</a></li>
+                    <li><a href="#">客户端修复</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2023 1.95刺影合击 All Rights Reserved. 仅供娱乐体验，请勿沉迷。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
