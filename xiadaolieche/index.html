@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="侠盗猎车手圣安地列斯秘籍大全 - 提供GTA San Andreas全功能秘籍代码、作弊器效果说明及使用方法，助你在游戏世界中自由驰骋，解锁隐藏载具与武器。">
+    <meta name="keywords" content="侠盗猎车手圣安地列斯秘籍大全, GTA SA秘籍, GTA圣安地列斯代码, 游戏作弊码, GTA San Andreas">
+    <title>侠盗猎车手圣安地列斯秘籍大全 - GTA SA全功能作弊代码与效果指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #2c3e50;
+            --accent-color: #f1c40f;
+            --bg-color: #f4f6f7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .quick-tips {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Content */
+        main {
+            padding-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        /* Cheat Card Grid */
+        .cheat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .cheat-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .cheat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border-top-color: var(--primary-color);
+        }
+
+        .card-header {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .code-box {
+            background: #2c3e50;
+            color: #ecf0f1;
+            font-family: "Courier New", Courier, monospace;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background: rgba(241, 196, 15, 0.1);
+        }
+
+        .effect-desc {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .effect-desc strong {
+            color: var(--secondary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Usage Guide */
+        .guide-section {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+        }
+
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .step-item {
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+
+        .step-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none;
+            position: relative;
+            padding-right: 40px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .faq-content {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            border-top: 1px solid #f0f0f0;
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #bdc3c7;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span>★</span> GTA SA秘籍大全
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#weapons">武器</a></li>
+                    <li><a href="#vehicles">载具</a></li>
+                    <li><a href="#stats">属性</a></li>
+                    <li><a href="#guide">使用指南</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>侠盗猎车手：圣安地列斯</h1>
+            <p>探索洛圣都的每一个角落，解锁无限生命、隐身模式与稀有载具。点击复制代码，开始你的疯狂冒险。</p>
+            <div class="quick-tips">
+                <span class="tag">PS2 原版兼容</span>
+                <span class="tag">PC/手机版通用</span>
+                <span class="tag">即时生效</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Weapons Section -->
+        <section id="weapons">
+            <h2 class="section-title">武器与弹药</h2>
+            <div class="cheat-grid">
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">全武器解锁</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>RIOTGUN</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            获得所有枪械，包括火箭筒、火焰喷射器和榴弹发射器。弹药无限。
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">全装甲</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>FULLHEALTH</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            恢复最大生命值和最大护甲值。生命值与护甲同时达到 100%。
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">火箭筒</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>RPG</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            立即获得 RPG 火箭筒，弹药无限。
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">火焰喷射器</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>FLAMETHROWER</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            立即获得火焰喷射器，弹药无限。
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">无限弹药</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>AMRAMRO</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            当前装备的所有枪械弹药无限，但不会补充丢失的武器。
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">隐形装甲</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>NOPEDRIVE</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            持有武器时进入隐身模式，但无法使用枪械攻击。
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Vehicles Section -->
+        <section id="vehicles">
+            <h2 class="section-title">载具与飞行</h2>
+            <div class="cheat-grid">
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">加速赛车</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>ROCKETMAN</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            瞬间获得喷气背包（火箭飞行器），按住攻击键可飞行，可在大楼间穿梭。
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">幽灵战车</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>PLEASURESEAM</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            车辆进入隐形模式，可穿过车辆和行人，撞毁后也会隐形。
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">极速车</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>SPEEDFREAK</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            所有车辆行驶速度大幅提升，刹车灵敏。
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">改变天气</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>RAINBOW</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            改变天空颜色为彩虹色，持续一段时间后恢复正常。
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Stats & Fun Section -->
+        <section id="stats">
+            <h2 class="section-title">属性与趣味</h2>
+            <div class="cheat-grid">
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">变瘦变高</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>WETSEXYSUICIDE</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            瞬间变瘦并变高，适合拍照或特殊任务。
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">想要什么有什么</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>LEAVEMEALONE</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            敌人不再攻击你，警察也不会追捕，让你自由探索。
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cheat-card">
+                    <div class="card-header">
+                        <span class="category-badge">夜晚模式</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-box">
+                            <span>ILIKESNOOPER</span>
+                            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                        </div>
+                        <div class="effect-desc">
+                            <strong>效果</strong>
+                            将游戏时间调整为夜晚，并保持夜晚状态。
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Usage Guide -->
+        <section id="guide" class="guide-section">
+            <h2 class="section-title">如何使用秘籍</h2>
+            <p>在游戏中输入代码时，请注意区分大小写，且输入速度不宜过快。以下是通用的输入方法：</p>
+            <div class="guide-steps">
+                <div class="step-item">
+                    <div class="step-icon">1</div>
+                    <h3>打开控制台</h3>
+                    <p>在 PC 版中，按 <strong>T</strong> 键或 <strong>~</strong> 键（波浪号）打开控制台。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">2</div>
+                    <h3>输入代码</h3>
+                    <p>在控制台输入框中输入对应的英文单词，例如 <code>ROCKETMAN</code>。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">3</div>
+                    <h3>确认生效</h3>
+                    <p>按回车键或空格键，屏幕左上角会提示秘籍已生效。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">4</div>
+                    <h3>保存进度</h3>
+                    <p>秘籍生效后无法保存到存档中。建议在需要存档时先关闭秘籍。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq-container">
+            <h2 class="section-title">常见问题</h2>
+            
+            <details>
+                <summary>秘籍会影响游戏存档吗？</summary>
+                <div class="faq-content">
+                    不会。秘籍仅影响当前游戏会话，不会永久修改存档数据。但是，一旦输入秘籍，该存档将无法被保存，必须重新开始或从之前的存档读取。
+                </div>
+            </details>
+
+            <details>
+                <summary>手机版和 PC 版秘籍通用吗？</summary>
+                <div class="faq-content">
+                    是的，大部分秘籍代码在 PC、手机（安卓/iOS）以及部分主机模拟器上是通用的。请确保输入的是正确的英文字母。
+                </div>
+            </details>
+
+            <details>
+                <summary>输入秘籍后看不到提示怎么办？</summary>
+                <div class="faq-content">
+                    请检查输入法是否切换到了英文状态，确保没有多余的空格。如果控制台无法打开，请尝试按 T 键或检查游戏设置中的键盘绑定。
+                </div>
+            </details>
+            
+            <details>
+                <summary>隐身秘籍有什么限制？</summary>
+                <div class="faq-content">
+                    隐身秘籍（NOPEDRIVE）虽然让你隐形，但无法使用枪械攻击，且进入建筑物时可能会穿模。请谨慎使用。
+                </div>
+            </details>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 侠盗猎车手圣安地列斯秘籍大全 - 仅供游戏参考与娱乐</p>
+            <p>本站内容基于原版游戏设计，不涉及任何版权侵犯。GTA 是 Take-Two Interactive 的注册商标。</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyCode(button) {
+            const codeBox = button.parentElement;
+            const codeText = codeBox.querySelector('span').innerText;
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                const originalText = button.innerText;
+                button.innerText = "已复制";
+                button.style.color = "#2ecc71";
+                
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.style.color = "";
+                }, 1500);
+            }).catch(err => {
+                console.error('复制失败:', err);
+                // 降级处理
+                const textArea = document.createElement("textarea");
+                textArea.value = codeText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("Copy");
+                textArea.remove();
+                button.innerText = "已复制";
+                setTimeout(() => {
+                    button.innerText = "复制";
+                }, 1500);
+            });
+        }
+    </script>
+</body>
+</html>
